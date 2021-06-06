@@ -131,16 +131,11 @@ img:hover {
     width: 200px;
     background-color: #55efc4;
     border-radius: 10%;
-    margin: 2px;
+    margin: 10px;
 }
 
 .photo-item-frame:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.myButton {
-    background-color: #7892c2;
-    border-radius: 28px;
 }
 
 #navbar {
@@ -151,7 +146,6 @@ img:hover {
     height: 100vh;
     width: 100%;
 }
-
 
 .menu-css {
     border: 1px solid #4e6096;
@@ -223,7 +217,7 @@ img:hover {
     font-size: 25px;
 }
 
-.add-to-cart {
+.Button-css {
     box-shadow: 0px 10px 14px -7px #9fb4f2;
     background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
     background-color: #7892c2;
@@ -250,12 +244,14 @@ img:hover {
     font-size: 40px;
     color: black;
     border: 0px;
-.add-to-cart:hover {
+}
+
+.Button-css:hover {
     background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
     background-color: #72b352;
 }
 
-.add-to-cart:active {
+.Button-css:active {
     position: relative;
     top: 1px;
 }
