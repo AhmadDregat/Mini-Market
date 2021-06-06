@@ -23,10 +23,17 @@ class Render {
     renderSignUpPage = function() {
         const source = $("#SignUp-template").html()
 
- 
+
 
         const template = Handlebars.compile(source)
         let itemSheet = template()
+        $(".menu").empty()
+        $(".menu").append(itemSheet)
+    }
+    renderDataCart = function(items) {
+        const source = $("#cart-template").html()
+        const template = Handlebars.compile(source)
+        let itemSheet = template({ items })
         $(".menu").empty()
         $(".menu").append(itemSheet)
     }
