@@ -13,6 +13,13 @@ router.get('/items', function(req, res) {
     })
 })
 
+router.get('/CartItems', function(req, res) {
+
+    Cart.find({}, function(err, items) {
+        res.send(items)
+    })
+})
+
 router.post('/user', function(req, res) {
     let user = new User(req.body)
     user.save()

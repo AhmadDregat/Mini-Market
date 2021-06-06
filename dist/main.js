@@ -10,12 +10,12 @@ $.ajax({
     }
 });
 let cart = {}
-$("body").on("click", ".add-to-cart", function(params) {
+$("body").on("click", ".add-to-cart", async function(params) {
     cart.count = parseInt($(this).siblings("input").val())
     cart.name = $(this).siblings("#name").text()
     cart.price = parseInt($(this).siblings("#price").text())
     cart.total = (cart.count * cart.price)
-    $.post('/itemcart', cart, function(response) {
+    await $.post('/itemcart', cart, function(response) {
 
     })
 
