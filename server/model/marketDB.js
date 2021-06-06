@@ -21,6 +21,7 @@ const cartSchema = new Schema({
     name: String,
     count: Number,
     price: Number,
+    users: {},
     total: Number
 
 })

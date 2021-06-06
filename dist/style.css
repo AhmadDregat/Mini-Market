@@ -250,6 +250,9 @@ img:hover {
     font-size: 40px;
     color: black;
     border: 0px;
+
+}
+
 .add-to-cart:hover {
     background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
     background-color: #72b352;
