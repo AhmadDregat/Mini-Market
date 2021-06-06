@@ -1,6 +1,7 @@
 const express = require('express')
 const Item = require('../model/marketDB').Item
 const User = require('../model/marketDB').User
+const Cart = require('../model/marketDB').Cart
 const ItemData = require('../model/items.json')
 const router = express.Router()
 
@@ -15,6 +16,11 @@ router.get('/items', function(req, res) {
 router.post('/user', function(req, res) {
     let user = new User(req.body)
     user.save()
+    res.end()
+})
+router.post('/itemcart', function(req, res) {
+    let cart = new Cart(req.body)
+    cart.save()
     res.end()
 })
 

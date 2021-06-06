@@ -17,11 +17,19 @@ const usersSchema = new Schema({
     adress: String,
     status: Boolean
 })
+const cartSchema = new Schema({
+    name: String,
+    count: Number,
+    price: Number,
+    total: Number
 
+})
+
+const Cart = mongoose.model("Cart", cartSchema)
 const Item = mongoose.model("Item", itemSchema)
 const User = mongoose.model("User", usersSchema)
 module.exports = {
-
+    Cart: Cart,
     Item: Item,
     User: User
 }
