@@ -11,6 +11,7 @@ const myHome = function() {
     });
 }
 
+
 myHome()
 $("#header-element").on("click", function() {
 
@@ -37,3 +38,11 @@ $("body").on("click", "#signUp", function() {
 
 
 })
+
+
+const myFunction = function() {
+    $("#navbar").slideToggle(1000);
+}
+
+
+
