@@ -11,6 +11,7 @@ class Render {
     }
 
 
+
     renderLoginPage = function() {
         const source = $("#Login-template").html()
         const template = Handlebars.compile(source)
@@ -29,5 +30,6 @@ class Render {
         $(".menu").empty()
         $(".menu").append(itemSheet)
     }
+
 
 }

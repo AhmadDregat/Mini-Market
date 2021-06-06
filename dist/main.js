@@ -1,4 +1,15 @@
 const render = new Render()
+
+$.ajax({
+    url: '/items',
+    type: 'get',
+    async: false,
+    success: function(data) {
+        // console.log(data)
+        render.renderData(data)
+    }
+});
+
 const myHome = function() {
     $.ajax({
         url: '/items',
@@ -43,6 +54,7 @@ $("body").on("click", "#signUp", function() {
 const myFunction = function() {
     $("#navbar").slideToggle(1000);
 }
+
 
 
 

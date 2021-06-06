@@ -57,10 +57,15 @@
         <div class="photo-item-frame">
             <img src="{{ photo_url }}"><br>
             <div class="information">
-                {{name}} <br> price per KG:{{price}}
+                <span id="name">{{name}} </span><br> price per KG:<span id="price">{{price}}</span>
+                <input type="number">
+                <br>
+
+                <a href="#" class="add-to-cart">Add to cart</a>
             </div>
         </div> {{/each}}
-
+    </script>
+    <script>
     </script>
 
 
