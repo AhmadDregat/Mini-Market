@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+
     <div class="container">
         <div class="row" id="grid-element">
             <div class="col s2">tel: XXXXXXX <br> address:xxxx</div>
@@ -39,11 +42,11 @@
         </div>
     </div>
     <script id="store-template" type="text/x-handlebars-template">
-        {{#each element}}
+        {{#each items}}
         <div class="photo-item-frame">
-            <img src="{{ photoUrl }}"><br>
+            <img src="{{ photo_url }}"><br>
             <div class="information">
-                {{name}}
+                {{name}} <br> price per KG:{{price}}
             </div>
         </div> {{/each}}
 
