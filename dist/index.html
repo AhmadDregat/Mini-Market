@@ -29,9 +29,9 @@
         <div class="row" id="grid-element">
             <div class="col s2">
                 <ul id="navbar">
-                    <li><a href="#" onclick="myHome()">Home</a></li>
-                    <li><a href="#" id="cart-btn">Cart</a></li>
-                    <li><a href="#">Order History</a></li>
+                    <li><a href="#" onclick="myHome()" class="menu-css">Home</a></li>
+                    <li><a href="#" id="cart-btn" class="menu-css">Cart</a></li>
+                    <li><a href="#" class="menu-css">Order History</a></li>
                 </ul>
             </div>
             <div class="col s10">
@@ -52,7 +52,7 @@
             <img src="{{ photo_url }}"><br>
             <div class="information">
                 <span id="name">{{name}} </span><br> price per KG:<span id="price">{{price}}</span>
-                <input type="number">
+                <input type="number" class="css-input" placeholder="enter the amount">
                 <br>
                 <a href="#" class="add-to-cart">Add to cart</a>
             </div>
