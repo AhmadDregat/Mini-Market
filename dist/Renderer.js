@@ -10,4 +10,12 @@ class Render {
         $(".menu").append(itemSheet)
     }
 
+    renderContactPage = function() {
+        const source = $("#contact-page").html()
+        const template = Handlebars.compile(source)
+        let itemSheet = template()
+        $(".menu").empty()
+        $(".menu").append(itemSheet)
+    }
+
 }

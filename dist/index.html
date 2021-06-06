@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -18,19 +18,30 @@
 
 <body>
 
+
     <div class="container">
         <div class="row" id="grid-element">
-            <div class="col s2">tel: XXXXXXX <br> address:xxxx</div>
+            <div class="col s2">tel: XXXXXXX <br> address:xxxx
+                <br><i class="fa fa-bars" id="menu-icon" onclick="myFunction()"> </i>
+
+            </div>
             <div class="col s2"></div>
             <div class="col s3"> mini market qissem</div>
             <div class="col s3"> </div>
             <div class="col s2 " id="header-element">Sign In</div>
         </div>
         <div class="row" id="grid-element">
-            <div class="col s12">
+            <div class="col s2">
+                <ul id="navbar">
+                    <li><a href="#" onclick="myHome()">Home</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+            <div class="col s10">
                 <div class="content-block">
                     <div class="row">
-                        <div class="col s12" id="page-content">
+                        <div class="col s10" id="page-content">
                             <div class="menu">
 
                             </div>
@@ -51,6 +62,7 @@
         </div> {{/each}}
 
     </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="Renderer.js"></script>
