@@ -137,10 +137,11 @@ img:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-
 .myButton {
     background-color: #7892c2;
     border-radius: 28px;
+}
+
 #navbar {
     display: none;
     z-index: 7;
@@ -151,14 +152,12 @@ img:hover {
 }
 
 a {
-
     border: 1px solid #4e6096;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
     font-family: Times New Roman;
     font-size: 17px;
-
     padding: 16px 31px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #283966;
@@ -193,6 +192,7 @@ a {
 .Page-css {
     margin: 20px;
     height: 100vh;
+    width: 100vh;
     background-color: #34495e;
     border-style: solid;
     border-color: black;
@@ -200,7 +200,6 @@ a {
     text-decoration: none;
     text-shadow: 0px 1px 0px #283966;
     text-align: center;
-    width: 200px;
 }
 
 a:hover {
