@@ -29,7 +29,7 @@ $("body").on("click", ".add-to-cart", async function(params) {
 
 })
 
-$("body").on("click", "#cart-btn", async function(params) {
+$("body").on("click", ".cart-btn", async function(params) {
     $.ajax({
         url: '/CartItems',
         type: 'get',

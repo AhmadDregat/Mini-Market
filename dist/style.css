@@ -152,16 +152,18 @@ img:hover {
 }
 
 a {
+    height: 50px;
     border: 1px solid #4e6096;
-    display: inline-block;
     cursor: pointer;
     color: #ffffff;
     font-family: Times New Roman;
     font-size: 17px;
-    padding: 16px 31px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #283966;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .myButton:hover {
@@ -214,4 +216,11 @@ a:active {
 .error-css {
     color: red;
     font-size: 25px;
+}
+
+#cart {
+    margin-top: 15px;
+    font-size: 40px;
+    color: black;
+    border: 0px;
 }
