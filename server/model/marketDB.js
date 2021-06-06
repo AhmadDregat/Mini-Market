@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-const marketSchema = new Schema({
+const itemSchema = new Schema({
     name: String,
     price: Number,
     quantity: String,
-    itemimg: String
+    photo_url: String
 })
 
-const market = mongoose.model("market", marketSchema)
-module.exports = market
+const Item = mongoose.model("Item", itemSchema)
+module.exports = Item
