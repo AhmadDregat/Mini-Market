@@ -24,10 +24,26 @@ router.post('/itemcart', function(req, res) {
     res.end()
 })
 
-// for (let doc of ItemData) {
-//     let Items = new Item(doc)
-// Items.save()
-// }
+router.get('/checkuser', function(req, res) {
+        let isExist = true
+        const getName = req.query.name
+        const getPassword = req.query.password
+        User.find({ name: getName }, function(err, results) {
+            results.forEach(e => {
+                console.log(e)
+                if (e.password != getPassword) {
+                    isExist = false
+                    res.send(isExist)
+                }
+            })
+            res.send(isExist)
+
+        })
+    })
+    // for (let doc of ItemData) {
+    //     let Items = new Item(doc)
+    // Items.save()
+    // }
 
 
 

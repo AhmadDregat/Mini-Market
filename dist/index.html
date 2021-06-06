@@ -51,6 +51,50 @@
         </div> {{/each}}
 
     </script>
+    <script>
+    </script>
+
+
+    <script id="Login-template" type="text/x-handlebars-template">
+
+        <div class="Page-css">
+            <h1>Sign In</h1>
+            name: <input type="text" id="name-input" placeholder="enter your name" class="css-input">
+            <br> Pasword: <input type="password" id="password-input" placeholder="enter your password" class="css-input">
+            <a href="#" class="myButton" id="signIn-btn">SignIn</a>
+            <div id="signIninput-error" class="error-css">
+
+            </div>
+            <br><b>if you dont have an account please</b> <a href="#" class="myButton" id="signUp-btn">SignUp</a>
+
+        </div>
+
+    </script>
+
+    <script id="SignUp-template" type="text/x-handlebars-template">
+
+        <div class="Page-css">
+            <h1>Sign Up</h1>
+            name: <input type="text" id="name" placeholder="enter your name" class="css-input">
+            <br> Password: <input type="password" id="password" placeholder="enter your password" class="css-input">
+            <br><b>Your password should be between 6-12 digits</b>
+            <br> Phone: <input type="number" id="phone" placeholder="enter your phone number" class="css-input">
+            <br><b>Your phone number should be 10 digtis</b>
+            <br> Address: <input type="text" id="adress" placeholder="enter your Adress" class="css-input">
+            <div id="input-error" class="error-css">
+
+            </div>
+            <a href="#" class="myButton" id="signUp">SignUp</a>
+
+
+        </div>
+
+    </script>
+
+
+
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="Renderer.js"></script>
