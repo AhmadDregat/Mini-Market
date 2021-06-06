@@ -10,5 +10,18 @@ const itemSchema = new Schema({
     photo_url: String
 })
 
+const usersSchema = new Schema({
+    name: String,
+    password: Number,
+    phone: Number,
+    adress: String,
+    status: Boolean
+})
+
 const Item = mongoose.model("Item", itemSchema)
-module.exports = Item
+const User = mongoose.model("User", usersSchema)
+module.exports = {
+
+    Item: Item,
+    User: User
+}

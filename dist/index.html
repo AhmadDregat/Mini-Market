@@ -24,7 +24,7 @@
             <div class="col s2"></div>
             <div class="col s3"> mini market qissem</div>
             <div class="col s3"> </div>
-            <div class="col s2 " id="header-element">Sign In</div>
+            <div class="col s2 " id="header-element">Login</div>
         </div>
         <div class="row" id="grid-element">
             <div class="col s12">
@@ -49,6 +49,35 @@
                 {{name}} <br> price per KG:{{price}}
             </div>
         </div> {{/each}}
+
+    </script>
+
+    <script id="Login-template" type="text/x-handlebars-template">
+
+        <div class="Page-css">
+            <h1>Sign In</h1>
+            name: <input type="text" id="name-input" placeholder="enter your name" class="css-input">
+            <br> Pasword: <input type="password" id="password-input" placeholder="enter your password" class="css-input">
+            <a href="#" class="myButton" id="signIn-btn">SignIn</a>
+            <br><b>if you dont have an account please</b> <a href="#" class="myButton" id="signUp-btn">SignUp</a>
+
+        </div>
+
+    </script>
+
+    <script id="SignUp-template" type="text/x-handlebars-template">
+
+        <div class="Page-css">
+            <h1>Sign Up</h1>
+            name: <input type="text" id="name" placeholder="enter your name" class="css-input">
+            <br> Pasword: <input type="password" id="password" placeholder="enter your password" class="css-input">
+            <br> Phone: <input type="number" id="phone" placeholder="enter your phone number" class="css-input">
+            <br> Address: <input type="text" id="adress" placeholder="enter your Adress" class="css-input">
+
+            <a href="#" class="myButton" id="signUp">SignUp</a>
+
+
+        </div>
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
