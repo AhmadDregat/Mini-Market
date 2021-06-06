@@ -5,7 +5,7 @@ $.ajax({
     type: 'get',
     async: false,
     success: function(data) {
-        console.log(data)
+        // console.log(data)
         render.renderData(data)
     }
 });

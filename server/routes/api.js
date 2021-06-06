@@ -11,6 +11,11 @@ router.get('/items', function(req, res) {
     })
 })
 
+// for (let doc of ItemData) {
+//     let Items = new Item(doc)
+// Items.save()
+// }
+
 
 
 
