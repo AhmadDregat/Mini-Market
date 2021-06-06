@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 // Mongoose setup
 const connectionKey = 'mongodb+srv://ahmaddregat:Aahmad1997@cluster0.zfscf.mongodb.net/MarkitDB?retryWrites=true&w=majority'
 const mongoose = require('mongoose')
-mongoose.connect(connectionKey || 'mongodb://localhost/MarketDB', { useNewUrlParser: true })
+mongoose.connect(connectionKey, { useNewUrlParser: true })
 
 app.use('/', api)
 

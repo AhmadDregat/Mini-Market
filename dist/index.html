@@ -46,10 +46,15 @@
         <div class="photo-item-frame">
             <img src="{{ photo_url }}"><br>
             <div class="information">
-                {{name}} <br> price per KG:{{price}}
+                <span id="name">{{name}} </span><br> price per KG:<span id="price">{{price}}</span>
+                <input type="number">
+                <br>
+
+                <a href="#" class="add-to-cart">Add to cart</a>
             </div>
         </div> {{/each}}
-
+    </script>
+    <script>
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>

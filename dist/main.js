@@ -1,5 +1,4 @@
 const render = new Render()
-
 $.ajax({
     url: '/items',
     type: 'get',
