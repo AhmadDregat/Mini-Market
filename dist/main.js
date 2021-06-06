@@ -1,14 +1,20 @@
 const render = new Render()
 
-$.ajax({
-    url: '/items',
-    type: 'get',
-    async: false,
-    success: function(data) {
-        // console.log(data)
-        render.renderData(data)
-    }
-});
+const myHome = function() {
+    $.ajax({
+        url: '/items',
+        type: 'get',
+        async: false,
+        success: function(data) {
+            // console.log(data)
+            render.renderData(data)
+        }
+    });
+}
+
+myHome()
+
+
 let cart = {}
 $("body").on("click", ".add-to-cart", async function(params) {
     cart.count = parseInt($(this).siblings("input").val())
@@ -23,20 +29,22 @@ $("body").on("click", ".add-to-cart", async function(params) {
 
 })
 
-const myHome = function() {
+$("body").on("click", "#cart-btn", async function(params) {
     $.ajax({
-        url: '/items',
+        url: '/CartItems',
         type: 'get',
         async: false,
         success: function(data) {
             // console.log(data)
-            render.renderData(data)
+            render.renderDataCart(data)
         }
     });
-}
 
 
-myHome()
+})
+
+
+
 $("#header-element").on("click", function() {
 
     render.renderLoginPage()
@@ -46,8 +54,11 @@ $("body").on("click", "#signUp-btn", function() {
     render.renderSignUpPage()
 })
 
+
+
+
 $("body").on("click", "#signIn-btn", function() {
-    console.log("bhaa ya khra")
+
     $("#signIninput-error").empty()
     const name = $('#name-input').val()
     const password = $('#password-input').val()
@@ -56,6 +67,7 @@ $("body").on("click", "#signIn-btn", function() {
         type: 'get',
         async: false,
         success: function(isExist) {
+            alert(isExist)
             if (isExist) {
                 myHome()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
@@ -70,6 +82,7 @@ $("body").on("click", "#signIn-btn", function() {
 
 
 $("body").on("click", "#signUp", function() {
+
     const name = $('#name').val()
     const password = $('#password').val()
     const phone = $('#phone').val()
@@ -92,7 +105,6 @@ $("body").on("click", "#signUp", function() {
 
 })
 
-
-const myFunction = function() {
+$("body").on("click", "#menu-icon", function() {
     $("#navbar").slideToggle(1000);
-}
+})

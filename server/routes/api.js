@@ -37,7 +37,7 @@ router.get('/checkuser', function(req, res) {
         const getPassword = req.query.password
         User.find({ name: getName }, function(err, results) {
             results.forEach(e => {
-                console.log(e)
+
                 if (e.password != getPassword) {
                     isExist = false
                     res.send(isExist)
