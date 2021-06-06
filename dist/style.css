@@ -1,0 +1,217 @@
+.container {
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#menu-icon {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #55efc4;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+
+/* Handle on hover */
+
+.content-block {
+    background-color: #ecf0f1;
+    height: 87vh;
+    border: 1px solid black;
+    border-left: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.row .col.s2 {
+    padding: 0;
+}
+
+.row .col.s3 {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.row .col.s12 {
+    padding: 0;
+}
+
+body {
+    background-color: #34495e;
+}
+
+#grid-element {
+    margin: 0;
+    background-color: #ecf0f1;
+}
+
+#header-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+    height: 100px;
+    margin-bottom: 0;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 20px;
+}
+
+#header-element:hover {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: 1px solid white;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin-left: 2px;
+    padding: 30px;
+}
+
+img:hover {
+    transform: scale(1.3);
+}
+
+.information {
+    border-top: 1px solid#34495e;
+    font-size: 20px;
+    font-family: 'Staatliches', cursive;
+}
+
+.header-content-page {
+    background-color: #55efc4;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.menu {
+    text-align: center;
+}
+
+.photo-item-frame {
+    display: inline-block;
+    height: 300px;
+    background-color: #55efc4;
+    border-radius: 10%;
+    margin: 2px;
+}
+
+.photo-item-frame:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.myButton {
+    background-color: #7892c2;
+    border-radius: 28px;
+}
+
+#navbar {
+    display: none;
+    z-index: 7;
+    font-size: 30px;
+    background-color: #34495e;
+    height: 100vh;
+    width: 100%;
+}
+
+a {
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Times New Roman;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #283966;
+    text-align: center;
+}
+
+.myButton:hover {
+    background-color: #476e9e;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.css-input {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    border-style: solid;
+    border-radius: 9px;
+    box-shadow: 3px 1px 5px rgba(66, 66, 66, .75);
+}
+
+.css-input:focus {
+    outline: none;
+}
+
+.Page-css {
+    margin: 20px;
+    height: 100vh;
+    width: 100vh;
+    background-color: #34495e;
+    border-style: solid;
+    border-color: black;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #283966;
+    text-align: center;
+}
+
+a:hover {
+    background-color: #476e9e;
+}
+
+a:active {
+    position: relative;
+    top: 1px;
+}
+
+.error-css {
+    color: red;
+    font-size: 25px;
+}
