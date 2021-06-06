@@ -244,12 +244,15 @@ img:hover {
     font-size: 40px;
     color: black;
     border: 0px;
+
 }
 
 .Button-css:hover {
-    background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+ background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
     background-color: #72b352;
+
 }
+
 
 .Button-css:active {
     position: relative;
