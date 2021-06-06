@@ -210,3 +210,8 @@ a:active {
     position: relative;
     top: 1px;
 }
+
+.error-css {
+    color: red;
+    font-size: 25px;
+}
