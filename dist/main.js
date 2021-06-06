@@ -1,6 +1,11 @@
 const render = new Render()
 
-const getData = function() {
-    render.renderData()
-}
-getData()
+$.ajax({
+    url: '/items',
+    type: 'get',
+    async: false,
+    success: function(data) {
+        console.log(data)
+        render.renderData(data)
+    }
+});
