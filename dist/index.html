@@ -34,17 +34,13 @@
                 <ul id="navbar">
 
                     <li><a href="#" onclick="myHome()" class="menu-css">Home</a></li>
-                    <li><a href="#" class="cart-btn">Cart</a></li>
+                    <li class="menu-css"><a href="#" class="cart-btn">Cart</a></li>
                     <li><a href="#" class="menu-css">Order History</a></li>
                 </ul>
             </div>
             <div class="col s10">
                 <div class="content-block">
-                    <div class="row">
-                        <div class="col s10" id="page-content">
-                            <div class="menu">
-                            </div>
-                        </div>
+                    <div class="menu">
                     </div>
                 </div>
             </div>
@@ -58,7 +54,7 @@
                 <span id="name">{{name}} </span><br> price per KG:<span id="price">{{price}}</span>
                 <input type="number" class="css-input" placeholder="enter the amount">
                 <br>
-                <a href="#" class="add-to-cart">Add to cart</a>
+                <a href="#" class="Button-css">Add to cart</a>
             </div>
         </div> {{/each}}
     </script>
@@ -69,9 +65,9 @@
             <h1>Sign In</h1>
             name: <input type="text" id="name-input" placeholder="enter your name" class="css-input">
             <br> Pasword: <input type="password" id="password-input" placeholder="enter your password" class="css-input">
-            <a href="#" class="myButton" id="signIn-btn">SignIn</a>
+            <a href="#" class="Button-css" id="signIn-btn">SignIn</a>
             <div id="signIninput-error" class="error-css"> </div>
-            <br><b>if you dont have an account please</b> <a href="#" class="myButton" id="signUp-btn">SignUp</a>
+            <br><b>if you dont have an account please</b> <a href="#" class="Button-css" id="signUp-btn">SignUp</a>
         </div>
     </script>
     <script id="SignUp-template" type="text/x-handlebars-template">
@@ -82,7 +78,7 @@
             <br> Phone: <input type="number" id="phone" placeholder="enter your phone number" class="css-input">
             <br> Address: <input type="text" id="adress" placeholder="enter your Adress" class="css-input">
             <div id="input-error" class="error-css"> </div>
-            <a href="#" class="myButton" id="signUp">SignUp</a>
+            <a href="#" class="Button-css" id="signUp">SignUp</a>
         </div>
     </script>
     <script id="cart-template" type="text/x-handlebars-template">
