@@ -45,21 +45,24 @@ router.post('/itemcart', function(req, res) {
 })
 
 router.get('/checkuser', function(req, res) {
-    let isExist = true
+    let isExist = false
     let isAdmin = false
     const getName = req.query.name
     const getPassword = req.query.password
     User.find({ name: getName }, function(err, results) {
+        if (results.length == 0) {
+            res.send({ isExist: false, isAdmin: false })
+        }
         results.forEach(e => {
-
             if (e.password != getPassword) {
-                isExist = false
-                res.send(isExist)
-            } else if (e.isadmin === true) {
-                isAdmin = true
+                res.send({ isExist: false, isAdmin: false })
+            } else if (e.password == getPassword && e.isadmin == false) {
+                res.send({ isExist: true, isAdmin: false })
+            } else if (e.password == getPassword && e.isadmin == true) {
+                res.send({ isExist: true, isAdmin: true })
             }
         })
-        res.send({ isExist: isExist, isAdmin: isAdmin })
+
 
     })
 })
