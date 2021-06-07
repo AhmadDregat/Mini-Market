@@ -16,7 +16,7 @@ myHome()
 
 
 let cart = {}
-$("body").on("click", ".add-to-cart", async function(params) {
+$("body").on("click", "#add-to-cart", async function(params) {
     cart.count = parseInt($(this).siblings("input").val())
     cart.name = $(this).siblings("#name").text()
     cart.price = parseInt($(this).siblings("#price").text())
@@ -67,9 +67,16 @@ $("body").on("click", "#signIn-btn", function() {
         type: 'get',
         async: false,
         success: function(isExist) {
-            alert(isExist)
-            if (isExist) {
+            alert(isExist.isAdmin)
+            if (isExist.isExist && isExist.isAdmin) {
                 myHome()
+                render.renderSignOut()
+                render.renderAdminBtn()
+                $("#header-element").html(`<b>Hello ${name} </b>`)
+                $("#header-element").css("pointer-events", "none");
+            } else if (isExist && isExist.isAdmin != true) {
+                myHome()
+                render.renderSignOut()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
                 $("#header-element").css("pointer-events", "none");
             } else {
@@ -107,4 +114,8 @@ $("body").on("click", "#signUp", function() {
 
 $("body").on("click", "#menu-icon", function() {
     $("#navbar").slideToggle(1000);
+})
+
+$("body").on("click", "#admin-btn", function() {
+    render.renderAdminBage()
 })
