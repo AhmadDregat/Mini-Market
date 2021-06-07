@@ -43,10 +43,10 @@ class Render {
         $("#navbar").append(itemSheet)
     }
 
-    renderAdminBage = function() {
+    renderAdminBage = function(items) {
         const source = $("#adminPage-template").html()
         const template = Handlebars.compile(source)
-        let itemSheet = template()
+        let itemSheet = template({ items })
         $(".menu").empty()
         $(".menu").append(itemSheet)
     }
@@ -57,6 +57,12 @@ class Render {
         let itemSheet = template()
         $("#signOut").append(itemSheet)
     }
-
+    renderAddNewItemForm = function() {
+        const source = $("#addNewItem-template").html()
+        const template = Handlebars.compile(source)
+        let formNewItemSheet = template()
+        $(".menu").empty()
+        $(".menu").append(formNewItemSheet)
+    }
 
 }

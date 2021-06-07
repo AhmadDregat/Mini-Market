@@ -7,11 +7,11 @@ const router = express.Router()
 
 
 router.get('/items', function(req, res) {
-
     Item.find({}, function(err, items) {
         res.send(items)
     })
 })
+
 
 router.get('/CartItems', function(req, res) {
 
@@ -45,21 +45,21 @@ router.post('/itemcart', function(req, res) {
 })
 
 router.get('/checkuser', function(req, res) {
-        let isExist = true
-        let isAdmin = false
-        const getName = req.query.name
-        const getPassword = req.query.password
-        User.find({ name: getName }, function(err, results) {
-            results.forEach(e => {
+    let isExist = true
+    let isAdmin = false
+    const getName = req.query.name
+    const getPassword = req.query.password
+    User.find({ name: getName }, function(err, results) {
+        results.forEach(e => {
 
-                if (e.password != getPassword) {
-                    isExist = false
-                    res.send(isExist)
-                } else if (e.isadmin === true) {
-                    isAdmin = true
-                }
-            })
-            res.send({ isExist: isExist, isAdmin: isAdmin })
+            if (e.password != getPassword) {
+                isExist = false
+                res.send(isExist)
+            } else if (e.isadmin === true) {
+                isAdmin = true
+            }
+        })
+        res.send({ isExist: isExist, isAdmin: isAdmin })
 
     })
 })
@@ -76,13 +76,43 @@ router.put('/update', function(req, res) {
     })
 
 })
+router.put('/setupItem', function(req, res) {
+    const elementName = req.query.name
+    const elementQuantity = parseInt(req.query.quantity)
+    const elementPrice = parseInt(req.query.price)
+    Item.findOneAndUpdate({ name: elementName }, { quantity: elementQuantity, price: elementPrice }, function(err, result) {
+        Item.find({}, function(err, items) {
+            res.send(items)
+        })
+    })
+
+})
 
 
+router.delete("/deleteItem/:itemName", function(req, res) {
+    const itemName = req.params.itemName;
+    Item.deleteMany({ name: itemName }, function(error) {
+        if (error) {
+            res.send(error)
+        } else {
+            Item.find({}, function(err, items) {
+                res.send(items)
+            })
+        }
+    })
+})
 
-// for (let doc of ItemData) {
-//     let Items = new Item(doc)
-// Items.save()
-// }
+router.post('/setnewitem', async function(req, res) {
+        let newItem = new Item(req.body)
+        await newItem.save()
+        Item.find({}, function(err, items) {
+            res.send(items)
+        })
+    })
+    // for (let doc of ItemData) {
+    //     let Items = new Item(doc)
+    // Items.save()
+    // }
 
 
 

@@ -114,10 +114,30 @@
     </script>
 
     <script id="adminPage-template" type="text/x-handlebars-template">
-        <h1>Admin Page</h1>
+        <h3>Admin Page
+            <h6><button id="add-new-item" class="Button-css">Add new item</button></h6>
+        </h3> {{#each items}}
+        <div class="photo-item-frame-admin">
+            <img src="{{ photo_url }}" class="item-admin-display"><br>
+            <div class="modify-content">
+                name : <span id="name">{{name}}</span>
+                <br> price per KG:<input type="number" id="price" value={{price}}>
+                <br> quantity:<input type="number" id="quantity" value={{quantity}}>
+                <button class="save-admin-changes">save</button>
+                <button class="remove-item-admin">remove</button>
+            </div>
+        </div> {{/each}}
 
     </script>
-
+    <script id="addNewItem-template" type="text/x-handlebars-template">
+        <div class="new-additem-form">
+            <input type="text" class="css-input" id="name" placeholder="item name ..">
+            <input type="text" class="css-input" id="url" placeholder="photo  url ..">
+            <input type="number" class="css-input" id="price" placeholder="price per kg ..">
+            <input type="number" class="css-input" id="quantity" placeholder="quantity ..">
+            <button id="save-new-item-db" class="Button-css">save the item</button>
+        </div>
+    </script>
     <script id="signout-template" type="text/x-handlebars-template">
         <a href="#" id="SignOut-btn">Sign Out</a>
 
