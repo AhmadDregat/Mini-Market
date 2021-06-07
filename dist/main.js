@@ -207,8 +207,10 @@ $("body").on("click", "#save-new-item-db", function() {
 })
 
 $("body").on("click", "#SignOut-btn", function() {
+    myHome()
     $("#header-element").html(`Login`)
     $("#header-element").css("pointer-events", "fill");
     $("#signOut").empty()
+    $("#admin").empty()
 
 })
