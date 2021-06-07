@@ -19,20 +19,31 @@ const usersSchema = new Schema({
     isadmin: Boolean
 })
 const cartSchema = new Schema({
-
     name: String,
     count: Number,
     price: Number,
-    users: {},
-    total: Number
+    total: Number,
+    username: String
+
+
+})
+
+const orderhistorySchema = new Schema({
+    username: String,
+    totalprice: Number,
+    date: Date
+
+
 
 })
 
 const Cart = mongoose.model("Cart", cartSchema)
 const Item = mongoose.model("Item", itemSchema)
 const User = mongoose.model("User", usersSchema)
+const Order = mongoose.model("Order", orderhistorySchema)
 module.exports = {
     Cart: Cart,
     Item: Item,
-    User: User
+    User: User,
+    Order: Order
 }

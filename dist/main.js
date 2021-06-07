@@ -1,13 +1,26 @@
 const render = new Render()
 
 const myHome = function() {
+
+
     $.ajax({
         url: '/items',
         type: 'get',
         async: false,
         success: function(data) {
             // console.log(data)
-            render.renderData(data)
+            let nameuser = localStorage.getItem("user")
+            if (localStorage.getItem("user") != null) {
+                render.renderSignOut()
+                $("#header-element").html(`<b>Hello ${nameuser} </b>`)
+                $("#header-element").css("pointer-events", "none");
+                render.renderData(data)
+
+            } else {
+                render.renderData(data)
+
+
+            }
         }
     });
 }
@@ -17,29 +30,44 @@ myHome()
 
 let cart = {}
 $("body").on("click", "#add-to-cart", async function(params) {
-    cart.count = parseInt($(this).siblings("input").val())
-    cart.name = $(this).siblings("#name").text()
-    cart.price = parseInt($(this).siblings("#price").text())
-    cart.total = (cart.count * cart.price)
-
-
-
-    await $.post('/itemcart', cart, function(response) {
-
-    })
-
-
-
+    let currentUser = localStorage.getItem('user');
+    if (currentUser == null) {
+        alert("Please Sign in")
+    } else {
+        cart.count = parseInt($(this).siblings("input").val())
+        cart.name = $(this).siblings("#name").text()
+        cart.price = parseInt($(this).siblings("#price").text())
+        cart.total = (cart.count * cart.price)
+        cart.username = currentUser
+    }
+    await $.post('/itemcart', cart, function(response) {})
 })
 
 $("body").on("click", ".cart-btn", async function(params) {
+    let currentUser = localStorage.getItem('user');
     $.ajax({
         url: '/CartItems',
         type: 'get',
         async: false,
         success: function(data) {
+            let Items = data.filter(e => e.username == currentUser)
+            render.renderDataCart(Items)
+        }
+    });
+
+
+})
+$("body").on("click", "#remove-item-cart", async function(params) {
+    let itemName = $(this).siblings(".name").text()
+        // alert(itemName)
+    $.ajax({
+        url: `/deleteItemFromCart/${itemName}`,
+        type: 'delete',
+        async: false,
+        success: function(data) {
             // console.log(data)
             render.renderDataCart(data)
+            console.log(data);
         }
     });
 
@@ -61,23 +89,27 @@ $("body").on("click", "#signUp-btn", function() {
 
 
 $("body").on("click", "#signIn-btn", function() {
-
     $("#signIninput-error").empty()
     const name = $('#name-input').val()
     const password = $('#password-input').val()
+    localStorage.setItem('user', name, 'isadmin')
+
     $.ajax({
         url: `/checkuser/?name=${name}&password=${password}`,
         type: 'get',
         async: false,
         success: function(checkObj) {
-
             if (checkObj.isExist && checkObj.isAdmin) {
+                localStorage.setItem('user', name);
+                localStorage.setItem('isadmin', true)
                 myHome()
                 render.renderSignOut()
                 render.renderAdminBtn()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
                 $("#header-element").css("pointer-events", "none");
             } else if (checkObj.isExist && checkObj.isAdmin != true) {
+                localStorage.setItem('user', name);
+                localStorage.setItem('isadmin', false)
                 myHome()
                 render.renderSignOut()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
@@ -97,7 +129,7 @@ $("body").on("click", "#signUp", function() {
     const password = $('#password').val()
     const phone = $('#phone').val()
     const adress = $('#adress').val()
-
+    localStorage.setItem('user', name, 'isadmin')
     if (name == "" || password == "" || password.length <= 6 || password.length >= 12 || phone == "" || phone.length != 10 || adress == "") {
         $("#input-error").empty()
         $("#input-error").append("Check your input")
@@ -187,6 +219,7 @@ $("body").on("click", ".remove-item-admin", function() {
 })
 
 $("body").on("click", "#add-new-item", function() {
+
     render.renderAddNewItemForm()
 })
 
@@ -207,10 +240,52 @@ $("body").on("click", "#save-new-item-db", function() {
 })
 
 $("body").on("click", "#SignOut-btn", function() {
-    myHome()
+    localStorage.clear()
     $("#header-element").html(`Login`)
     $("#header-element").css("pointer-events", "fill");
     $("#signOut").empty()
-    $("#admin").empty()
+
+})
+
+
+$("body").on("click", "#save-order-history", function() {
+    let getName = localStorage.getItem('user')
+    let getTotalPrice = parseInt($(this).siblings(".total-price").text())
+    $.ajax({
+        url: `/saveOrderHistory`,
+        type: 'post',
+        data: { username: getName, totalprice: getTotalPrice, date: Date.now() },
+        async: false,
+        success: function(items) {
+            $.ajax({
+                url: `/deleteCart/${getName}`,
+                type: 'delete',
+                async: false,
+                success: function(items) {
+                    render.renderDataCart(items)
+                }
+            });
+        }
+    });
+
+
+})
+
+$("body").on("click", "#history_btn", function() {
+    let currentUser = localStorage.getItem('user');
+    if (currentUser == null) {
+        alert("Please Sign in")
+    } else {
+        $.ajax({
+            url: `orderHistory`,
+            type: 'get',
+            async: false,
+            success: function(items) {
+                let UserItems = items.filter(e => e.username == currentUser)
+                render.renderOrderHistory(UserItems)
+            }
+        });
+    }
+
 
 })
