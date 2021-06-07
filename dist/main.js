@@ -69,22 +69,22 @@ $("body").on("click", "#signIn-btn", function() {
         url: `/checkuser/?name=${name}&password=${password}`,
         type: 'get',
         async: false,
-        success: function(isExist) {
+        success: function(checkObj) {
 
-            if (isExist.isExist && isExist.isAdmin) {
+            if (checkObj.isExist && checkObj.isAdmin) {
                 myHome()
                 render.renderSignOut()
                 render.renderAdminBtn()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
                 $("#header-element").css("pointer-events", "none");
-            } else if (isExist && isExist.isAdmin != true) {
+            } else if (checkObj.isExist && checkObj.isAdmin != true) {
                 myHome()
                 render.renderSignOut()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
                 $("#header-element").css("pointer-events", "none");
             } else {
                 $("#signIninput-error").empty()
-                $("#signIninput-error").append("user dosnt exsit")
+                $("#signIninput-error").append("check your name/password")
             }
         }
     });
