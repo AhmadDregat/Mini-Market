@@ -21,7 +21,8 @@ $("body").on("click", "#add-to-cart", async function(params) {
     cart.name = $(this).siblings("#name").text()
     cart.price = parseInt($(this).siblings("#price").text())
     cart.total = (cart.count * cart.price)
-    ccart.photo_url = $(".photo-item-cart").text()
+
+
 
     await $.post('/itemcart', cart, function(response) {
 
@@ -148,8 +149,61 @@ $("body").on("click", ".save-count", function() {
     });
 })
 $("body").on("click", "#admin-btn", function() {
-    render.renderAdminBage()
+    $.ajax({
+        url: '/items',
+        type: 'get',
+        async: false,
+        success: function(items) {
+            render.renderAdminBage(items)
+        }
+    });
 
+})
+$("body").on("click", ".save-admin-changes", function() {
+    let quantity = parseInt($(this).siblings("#quantity").val())
+    let name = $(this).siblings("#name").text()
+    let price = parseInt($(this).siblings("#price").val())
+    $.ajax({
+        url: `/setupItem/?name=${name}&quantity=${quantity}&price=${price}`,
+        type: 'put',
+        async: false,
+        success: function(items) {
+            render.renderAdminBage(items)
+        }
+    });
+
+})
+$("body").on("click", ".remove-item-admin", function() {
+    let name = $(this).siblings("#name").text()
+    $.ajax({
+        url: `/deleteItem/${name}`,
+        type: 'delete',
+        async: false,
+        success: function(items) {
+            render.renderAdminBage(items)
+        }
+    });
+
+})
+
+$("body").on("click", "#add-new-item", function() {
+    render.renderAddNewItemForm()
+})
+
+$("body").on("click", "#save-new-item-db", function() {
+    let quantity = parseInt($(this).siblings("#quantity").val())
+    let name = $(this).siblings("#name").val()
+    let price = parseInt($(this).siblings("#price").val())
+    let url = $(this).siblings("#url").val()
+    $.ajax({
+        url: `/setnewitem`,
+        type: 'post',
+        data: { name: name, quantity: quantity, price: price, photo_url: url },
+        async: false,
+        success: function(items) {
+            render.renderAdminBage(items)
+        }
+    });
 })
 
 $("body").on("click", "#SignOut-btn", function() {
