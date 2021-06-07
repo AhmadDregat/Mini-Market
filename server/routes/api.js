@@ -26,31 +26,60 @@ router.post('/user', function(req, res) {
     res.end()
 })
 router.post('/itemcart', function(req, res) {
-    let cart = new Cart(req.body)
-    cart.save()
-    res.end()
+    let a = parseInt(req.body.count)
+
+    Cart.find({ name: req.body.name }, function(err, param) {
+        if (param.length >= 1) {
+            a += param[0].count
+            Cart.findOneAndUpdate({ name: req.body.name }, { count: a }, function() {
+                res.end()
+            })
+        } else {
+            let cart = new Cart(req.body)
+            cart.save()
+            res.end()
+        }
+
+    })
+
 })
 
 router.get('/checkuser', function(req, res) {
-        let isExist = true
-        const getName = req.query.name
-        const getPassword = req.query.password
-        User.find({ name: getName }, function(err, results) {
-            results.forEach(e => {
+    let isExist = true
+    const getName = req.query.name
+    const getPassword = req.query.password
+    User.find({ name: getName }, function(err, results) {
+        results.forEach(e => {
 
-                if (e.password != getPassword) {
-                    isExist = false
-                    res.send(isExist)
-                }
-            })
-            res.send(isExist)
+            if (e.password != getPassword) {
+                isExist = false
+                res.send(isExist)
+            }
+        })
+        res.send(isExist)
 
+    })
+})
+
+
+router.put('/update', function(req, res) {
+    const elementName = req.query.name
+    const elementCount = req.query.count
+    const elementPrice = req.query.price
+    Cart.findOneAndUpdate({ name: elementName }, { count: elementCount, total: elementPrice * elementCount }, function(err, result) {
+        Cart.find({}, function(err, items) {
+            res.send(items)
         })
     })
-    // for (let doc of ItemData) {
-    //     let Items = new Item(doc)
-    // Items.save()
-    // }
+
+})
+
+
+
+// for (let doc of ItemData) {
+//     let Items = new Item(doc)
+// Items.save()
+// }
 
 
 

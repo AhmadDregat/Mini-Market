@@ -16,11 +16,13 @@ myHome()
 
 
 let cart = {}
-$("body").on("click", ".add-to-cart", async function(params) {
+$("body").on("click", "#add-to-cart", async function(params) {
     cart.count = parseInt($(this).siblings("input").val())
     cart.name = $(this).siblings("#name").text()
     cart.price = parseInt($(this).siblings("#price").text())
     cart.total = (cart.count * cart.price)
+    ccart.photo_url = $(".photo-item-cart").text()
+
     await $.post('/itemcart', cart, function(response) {
 
     })
@@ -87,6 +89,7 @@ $("body").on("click", "#signUp", function() {
     const password = $('#password').val()
     const phone = $('#phone').val()
     const adress = $('#adress').val()
+
     if (name == "" || password == "" || password.length <= 6 || password.length >= 12 || phone == "" || phone.length != 10 || adress == "") {
         $("#input-error").empty()
         $("#input-error").append("Check your input")
@@ -107,4 +110,33 @@ $("body").on("click", "#signUp", function() {
 
 $("body").on("click", "#menu-icon", function() {
     $("#navbar").slideToggle(1000);
+})
+
+
+
+
+$("body").on("click", ".sub-counter", function() {
+    let counterVal = parseInt($(this).siblings(".counter-increment-div").text())
+    counterVal--
+    $(this).siblings(".counter-increment-div").text(counterVal)
+})
+
+$("body").on("click", ".add-counter", function() {
+    let counterVal = parseInt($(this).siblings(".counter-increment-div").text())
+    counterVal++
+    $(this).siblings(".counter-increment-div").text(counterVal)
+})
+
+$("body").on("click", ".save-count", function() {
+    let count = parseInt($(this).siblings(".counter-increment-div").text())
+    let name = $(this).siblings(".name").text()
+    let price = parseInt($(this).siblings(".price").text())
+    $.ajax({
+        url: `/update/?name=${name}&count=${count}&price=${price}`,
+        type: 'put',
+        async: false,
+        success: function(data) {
+            render.renderDataCart(data)
+        }
+    });
 })

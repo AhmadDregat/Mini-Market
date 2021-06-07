@@ -18,6 +18,7 @@ const usersSchema = new Schema({
     status: Boolean
 })
 const cartSchema = new Schema({
+
     name: String,
     count: Number,
     price: Number,
