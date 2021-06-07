@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
+    <title>Mini Market The Town</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -18,16 +19,17 @@
 <body>
     <div class="container">
         <div class="row" id="grid-element">
-            <div class="col s2">tel: XXXXXXX <br> address:xxxx
+            <div class="col s2"><i class="fa fa-phone" style="font-size:24px">: 9071020000</i> <br> <i class="fa fa-map-marker" style="font-size:24px">: KfarQasim</i>
                 <br><i class="fa fa-bars" id="menu-icon"> </i>
             </div>
             <div class="col s2"></div>
-            <div class="col s3"> mini market qissem</div>
+            <div class="col s3" id="title"> Mini Market The Town</div>
             <div class="col s3"> </div>
             <div class="col s1" id="cart-icon">
-                <a href="#" class="cart-btn" id="cart"> <i class="fa fa-shopping-cart"></i></a>
+                <a href="#" class="cart-btn" id="cart"> <i class="fa fa-shopping-cart" style="font-size:30px"></i></a>
             </div>
             <div class="col s1 " id="header-element">Login</div>
+            <div class="col s1 " id="signOut"></div>
         </div>
         <div class="row" id="grid-element">
             <div class="col s2">
@@ -106,6 +108,21 @@
             </div>
         </div>
     </script>
+
+    <script id="admin-template" type="text/x-handlebars-template">
+        <li class="menu-css" id="admin"><a href="#" id="admin-btn">Admin</a></li>
+    </script>
+
+    <script id="adminPage-template" type="text/x-handlebars-template">
+        <h1>Admin Page</h1>
+
+    </script>
+
+    <script id="signout-template" type="text/x-handlebars-template">
+        <a href="#" id="SignOut-btn">Sign Out</a>
+
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="Renderer.js"></script>

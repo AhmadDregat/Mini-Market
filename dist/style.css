@@ -202,7 +202,6 @@ img:hover {
 .Page-css {
     margin: 20px;
     height: 100vh;
-    width: 100vh;
     background-color: #34495e;
     border-style: solid;
     border-color: black;
@@ -295,4 +294,20 @@ img:hover {
     margin-right: auto;
     border-radius: 10px;
     cursor: pointer;
+#signOut {
+    margin-left: 95%;
+}
+
+#title {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+    text-align: center;
 }

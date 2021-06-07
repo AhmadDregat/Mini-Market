@@ -69,9 +69,16 @@ $("body").on("click", "#signIn-btn", function() {
         type: 'get',
         async: false,
         success: function(isExist) {
-            alert(isExist)
-            if (isExist) {
+            alert(isExist.isAdmin)
+            if (isExist.isExist && isExist.isAdmin) {
                 myHome()
+                render.renderSignOut()
+                render.renderAdminBtn()
+                $("#header-element").html(`<b>Hello ${name} </b>`)
+                $("#header-element").css("pointer-events", "none");
+            } else if (isExist && isExist.isAdmin != true) {
+                myHome()
+                render.renderSignOut()
                 $("#header-element").html(`<b>Hello ${name} </b>`)
                 $("#header-element").css("pointer-events", "none");
             } else {
@@ -139,4 +146,7 @@ $("body").on("click", ".save-count", function() {
             render.renderDataCart(data)
         }
     });
+$("body").on("click", "#admin-btn", function() {
+    render.renderAdminBage()
+
 })
