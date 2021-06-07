@@ -45,15 +45,19 @@ $("body").on("click", "#add-to-cart", async function(params) {
 
 $("body").on("click", ".cart-btn", async function(params) {
     let currentUser = localStorage.getItem('user');
-    $.ajax({
-        url: '/CartItems',
-        type: 'get',
-        async: false,
-        success: function(data) {
-            let Items = data.filter(e => e.username == currentUser)
-            render.renderDataCart(Items)
-        }
-    });
+    if (currentUser == null) {
+        alert("Please Sign in")
+    } else {
+        $.ajax({
+            url: '/CartItems',
+            type: 'get',
+            async: false,
+            success: function(data) {
+                let Items = data.filter(e => e.username == currentUser)
+                render.renderDataCart(Items)
+            }
+        });
+    }
 
 
 })
