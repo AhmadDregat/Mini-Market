@@ -37,7 +37,7 @@
 
                     <li><a href="#" onclick="myHome()" class="menu-css">Home</a></li>
                     <li class="menu-css"><a href="#" class="cart-btn">Cart</a></li>
-                    <li><a href="#" class="menu-css">Order History</a></li>
+                    <li><a href="#" class="menu-css" id="history_btn">Order History</a></li>
                 </ul>
             </div>
             <div class="col s10">
@@ -47,6 +47,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <script id="store-template" type="text/x-handlebars-template">
         {{#each items}}
@@ -84,29 +85,30 @@
         </div>
     </script>
     <script id="cart-template" type="text/x-handlebars-template">
-        <div>
-            {{#each items}}
 
-            <div class="cart-item">
-                name : <span class="name">{{name}}</span><br> amount :{{count}} kg <br> price per Kg: <span class="price">{{price}} ₪</span> <br> total : {{total}} ₪<br>
-                <div class="sub-counter">
-                    -
-                </div>
-                <div class="counter-increment-div">
-                    {{count}}
-                </div>
-                <div class="add-counter">
-                    +
-                </div>
-                <button class="save-count">save</button>
+        {{#each items}}
+
+        <div class="cart-item">
+            name : <span class="name">{{name}}</span><br> amount :{{count}} kg <br> price per Kg: <span class="price">{{price}} ₪</span> <br> total : {{total}} ₪<br>
+            <div class="sub-counter">
+                -
             </div>
-
-            {{/each}}
-
-            <div class="order-btn">
-                <a href="#" class="order">Order It</a>
+            <div class="counter-increment-div">
+                {{count}}
             </div>
+            <div class="add-counter">
+                +
+            </div>
+            <button class="save-count">save</button>
+            <button id="remove-item-cart">remove</button>
+
         </div>
+
+        {{/each}}
+
+        <div class="total-price"></div>
+        <a href="#" class="Button-css" id="save-order-history">Order It</a>
+
     </script>
 
     <script id="admin-template" type="text/x-handlebars-template">
@@ -138,8 +140,19 @@
             <button id="save-new-item-db" class="Button-css">save the item</button>
         </div>
     </script>
+
     <script id="signout-template" type="text/x-handlebars-template">
         <a href="#" id="SignOut-btn">Sign Out</a>
+
+    </script>
+
+    <script id="orderHistory-template" type="text/x-handlebars-template">
+        <h3>Your Orders</h3>
+        {{#each items}}
+        <div class="order-sheet">
+            user name :{{username}}<br> total price :{{totalprice}}<br> date:{{date}}
+        </div>
+        {{/each}}
 
     </script>
 

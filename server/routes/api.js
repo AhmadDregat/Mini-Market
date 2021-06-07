@@ -2,6 +2,7 @@ const express = require('express')
 const Item = require('../model/marketDB').Item
 const User = require('../model/marketDB').User
 const Cart = require('../model/marketDB').Cart
+const Order = require('../model/marketDB').Order
 const ItemData = require('../model/items.json')
 const router = express.Router()
 
@@ -16,6 +17,13 @@ router.get('/items', function(req, res) {
 router.get('/CartItems', function(req, res) {
 
     Cart.find({}, function(err, items) {
+        res.send(items)
+    })
+})
+
+router.get('/orderHistory', function(req, res) {
+
+    Order.find({}, function(err, items) {
         res.send(items)
     })
 })
@@ -104,13 +112,45 @@ router.delete("/deleteItem/:itemName", function(req, res) {
         }
     })
 })
-
-router.post('/setnewitem', async function(req, res) {
-        let newItem = new Item(req.body)
-        await newItem.save()
-        Item.find({}, function(err, items) {
+router.delete("/deleteItemFromCart/:itemName", function(req, res) {
+    const itemName = req.params.itemName;
+    Cart.deleteMany({ name: itemName }).then(function() {
+        Cart.find({}, function(err, items) {
             res.send(items)
         })
+    })
+})
+
+
+router.delete("/deleteCart/:userName", function(req, res) {
+    const userName = req.params.userName;
+    Cart.deleteMany({ username: userName }, function(error) {
+        if (error) {
+            res.send(error)
+        } else {
+            Cart.find({ username: userName }, function(err, items) {
+                res.send(items)
+            })
+        }
+
+    })
+
+})
+
+
+router.post('/setnewitem', async function(req, res) {
+    let newItem = new Item(req.body)
+    await newItem.save()
+    Item.find({}, function(err, items) {
+        res.send(items)
+    })
+})
+
+
+router.post('/saveOrderHistory', async function(req, res) {
+        let newItem = new Order(req.body)
+        await newItem.save()
+        res.end()
     })
     // for (let doc of ItemData) {
     //     let Items = new Item(doc)
