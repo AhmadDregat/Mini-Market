@@ -185,6 +185,7 @@ $("body").on("click", ".remove-item-admin", function() {
     });
 
 })
+
 $("body").on("click", "#add-new-item", function() {
     render.renderAddNewItemForm()
 })
@@ -203,4 +204,11 @@ $("body").on("click", "#save-new-item-db", function() {
             render.renderAdminBage(items)
         }
     });
+})
+
+$("body").on("click", "#SignOut-btn", function() {
+    $("#header-element").html(`Login`)
+    $("#header-element").css("pointer-events", "fill");
+    $("#signOut").empty()
+
 })
