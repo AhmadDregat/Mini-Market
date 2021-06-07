@@ -27,6 +27,7 @@ class Render {
         $(".menu").empty()
         $(".menu").append(itemSheet)
     }
+
     renderDataCart = function(items) {
         const source = $("#cart-template").html()
         const template = Handlebars.compile(source)

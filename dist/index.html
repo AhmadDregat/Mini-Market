@@ -86,16 +86,26 @@
     <script id="cart-template" type="text/x-handlebars-template">
         <div>
             {{#each items}}
-            <div class="cart-item">
-                <div class="information">
-                    name: {{name}}<br> count:{{count}} <br> price per Kg: {{price}}
-                    <br> total : {{total}}
-                    <br>
-                    <input type="text">
 
+            <div class="cart-item">
+                name : <span class="name">{{name}}</span><br> amount :{{count}} kg <br> price per Kg: <span class="price">{{price}} ₪</span> <br> total : {{total}} ₪<br>
+                <div class="sub-counter">
+                    -
                 </div>
-            </div> {{/each}}
-            <a href="#" class="order">Order It</a>
+                <div class="counter-increment-div">
+                    {{count}}
+                </div>
+                <div class="add-counter">
+                    +
+                </div>
+                <button class="save-count">save</button>
+            </div>
+
+            {{/each}}
+
+            <div class="order-btn">
+                <a href="#" class="order">Order It</a>
+            </div>
         </div>
     </script>
 

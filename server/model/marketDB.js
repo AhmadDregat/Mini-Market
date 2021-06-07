@@ -19,6 +19,7 @@ const usersSchema = new Schema({
     isadmin: Boolean
 })
 const cartSchema = new Schema({
+
     name: String,
     count: Number,
     price: Number,
