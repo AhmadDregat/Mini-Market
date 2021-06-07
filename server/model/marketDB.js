@@ -15,7 +15,8 @@ const usersSchema = new Schema({
     password: Number,
     phone: Number,
     adress: String,
-    status: Boolean
+    status: Boolean,
+    isadmin: Boolean
 })
 const cartSchema = new Schema({
     name: String,
