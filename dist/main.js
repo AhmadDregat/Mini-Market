@@ -69,7 +69,7 @@ $("body").on("click", "#signIn-btn", function() {
         type: 'get',
         async: false,
         success: function(isExist) {
-            alert(isExist.isAdmin)
+
             if (isExist.isExist && isExist.isAdmin) {
                 myHome()
                 render.renderSignOut()
@@ -146,7 +146,15 @@ $("body").on("click", ".save-count", function() {
             render.renderDataCart(data)
         }
     });
+})
 $("body").on("click", "#admin-btn", function() {
     render.renderAdminBage()
+
+})
+
+$("body").on("click", "#SignOut-btn", function() {
+    $("#header-element").html(`Login`)
+    $("#header-element").css("pointer-events", "fill");
+    $("#signOut").empty()
 
 })
