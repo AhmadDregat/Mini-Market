@@ -8,7 +8,7 @@ const myHome = function() {
         type: 'get',
         async: false,
         success: function(data) {
-            // console.log(data)
+
             let nameuser = localStorage.getItem("user")
             if (localStorage.getItem("user") != null) {
                 render.renderSignOut()
@@ -63,13 +63,13 @@ $("body").on("click", ".cart-btn", async function(params) {
 })
 $("body").on("click", "#remove-item-cart", async function(params) {
     let itemName = $(this).siblings(".name").text()
-        // alert(itemName)
+
     $.ajax({
         url: `/deleteItemFromCart/${itemName}`,
         type: 'delete',
         async: false,
         success: function(data) {
-            // console.log(data)
+
             render.renderDataCart(data)
             console.log(data);
         }

@@ -62,10 +62,6 @@ body {
     padding-top: 10px;
 }
 
-.row .col.s12 {
-    padding: 0;
-}
-
 body {
     background-color: #34495e;
 }
@@ -107,17 +103,6 @@ img:hover {
     border-top: 1px solid#34495e;
     font-size: 20px;
     font-family: 'Staatliches', cursive;
-}
-
-.header-content-page {
-    background-color: #55efc4;
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
 }
 
 .menu {
@@ -169,15 +154,6 @@ img:hover {
     top: 1px;
 }
 
-.myButton:hover {
-    background-color: #476e9e;
-}
-
-.myButton:active {
-    position: relative;
-    top: 1px;
-}
-
 .css-input {
     padding: 5px;
     font-size: 16px;
@@ -192,7 +168,7 @@ img:hover {
 
 .css-input::placeholder {
     color: white;
-    opacity: 0.2;
+    opacity: 0.5;
 }
 
 .css-input:focus {
@@ -338,8 +314,6 @@ h3 {
     padding: 60px;
     background-color: #34495e;
 }
-
-.total-price {}
 
 .order-sheet {
     background-color: #55efc4;
