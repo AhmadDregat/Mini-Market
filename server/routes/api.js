@@ -148,15 +148,10 @@ router.post('/setnewitem', async function(req, res) {
 
 
 router.post('/saveOrderHistory', async function(req, res) {
-        let newItem = new Order(req.body)
-        await newItem.save()
-        res.end()
-    })
-    // for (let doc of ItemData) {
-    //     let Items = new Item(doc)
-    // Items.save()
-    // }
-
+    let newItem = new Order(req.body)
+    await newItem.save()
+    res.end()
+})
 
 
 
