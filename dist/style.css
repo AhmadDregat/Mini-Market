@@ -41,7 +41,7 @@ body {
 
 .content-block {
     background-color: #ecf0f1;
-    height: 83vh;
+    height: 100vh;
     border: 1px solid black;
     border-left: 0px;
     overflow: scroll;
